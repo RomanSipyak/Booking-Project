@@ -19,7 +19,7 @@
   </div>
   <div class="field">
     <%= f.label :Select_your_Country %>
-    <%= f.collection_select(:user, :city_id, City.all, :id, :tile, prompt: true) %>
+    <%= f.collection_select(:city_id, City.all, :id, :title , prompt: true) %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
