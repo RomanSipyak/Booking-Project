@@ -2,14 +2,61 @@
 <html>
   <head>
     <title>Booking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand"><%= link_to "Home", root_path %></div>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Show Booking', root_path %></li>
+          <% if user_signed_in? %>
+           <li><%=link_to 'Add your item', new_item_path %></li>
+          <% end %>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+              <div type="button" class="btn" style="margin-top: 7px">
+                <li>
+                  <%= link_to  destroy_user_session_path, method: :delete do %>
+                    <span class="glyphicon glyphicon-user"></span> Sign out
+                  <% end %>
+                </li>
+              </div>
+           <% else %>
+              <div type="button" class="btn" style="margin-top: 7px">
+                <li>
+                  <%= link_to  new_user_registration_path do %>
+                    <span class="glyphicon glyphicon-user"></span> Sign Up
+                  <% end %>
+                </li>
+              </div>
+              <div type="button" class="btn" style="margin-top: 7px">
+                <li>
+                  <%= link_to new_user_session_path do %>
+                    <span class="glyphicon glyphicon-log-in"></span> Login
+                  <% end %>
+                </li>
+              </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <%= yield %>
   </body>
 </html>
