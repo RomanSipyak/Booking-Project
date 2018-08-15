@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     if @item.save
-      @item.save
     else
       @categories = Category.all
       render 'new'
@@ -33,6 +32,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:description, :category_id,:price)
+    params.require(:item).permit(:description, :category_id, :price)
   end
 end

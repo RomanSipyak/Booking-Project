@@ -1,7 +1,7 @@
 <div class = "container" >
   <% if @item.errors.any? %>
     <div class="error_explanation">
-      <h6><%= pluralize(@item.errors.count, "error") %>Eror:</h6>
+      <h4><%= pluralize(@item.errors.count, "error") %></h4>
       <ul>
         <% @item.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
