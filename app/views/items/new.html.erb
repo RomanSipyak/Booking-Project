@@ -1,15 +1,26 @@
 <div class = "container" >
+  <% if @item.errors.any? %>
+    <div class="error_explanation">
+      <h6><%= pluralize(@item.errors.count, "error") %>Eror:</h6>
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <%= form_for @item do |f| %>
   <div class="form-group">
     <label for="usr">Description:</label>
     <%= f.text_area :description %><br>
     <label for="usr">Price:</label>
-    <%= f.text_field :price %>
+    <%= f.text_field :price %><br>
     <div class="field">
+
       <%= f.label :Select_item_Category %>
-      <%= f.collection_select(:category_id, Category.all, :id, :title , prompt: true) %>
+      <%= f.collection_select(:category_id, @categories , :id, :title , prompt: true) %>
     </div>
   </div>
-  <%= f.submit 'Update or create' %>
+  <%= f.submit 'Save' %>
 <% end %>
 </div>

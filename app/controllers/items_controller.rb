@@ -1,13 +1,19 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
+    @categories = Category.all
   end
 
   def create
     @item = Item.new(item_params)
-    @item.price = params[:price].to_f
     @item.user = current_user
-    @item.save
+    if @item.save
+      @item.save
+    else
+      @categories = Category.all
+      render 'new'
+    end
+
   end
 
   def update
@@ -27,6 +33,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:description, :category_id)
+    params.require(:item).permit(:description, :category_id,:price)
   end
 end
