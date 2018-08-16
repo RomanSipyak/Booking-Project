@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+
+  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, on: [:index]
+
   def new
     @item = Item.new
     @categories = Category.all
@@ -24,7 +28,12 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def me
+    @items = Item.where(user: current_user)
+  end
+
   def index
+    @items = Item.where.not(user: current_user)
   end
 
   def show

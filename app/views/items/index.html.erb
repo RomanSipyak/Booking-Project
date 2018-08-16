@@ -1,2 +1,16 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<% @items.each do |item| %>
+  <div class="container">
+    <h2><%= item.category.title %></h2>
+    <div class = "row">
+     <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Price:<%= item.price %></li>
+        <li class="list-group-item">Description:<%= item.description %></li>
+      </ul>
+     </div>
+      <div class="col-md-2">
+        <%= link_to "Do Booking(not work)", destroy_user_session_path, method: :delete, class: "btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+<% end %>
