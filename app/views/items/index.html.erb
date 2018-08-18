@@ -8,9 +8,11 @@
         <li class="list-group-item">Description:<%= item.description %></li>
       </ul>
      </div>
-      <div class="col-md-2">
-        <%= link_to "Do Booking(not work)", destroy_user_session_path, method: :delete, class: "btn btn-primary"%>
-      </div>
+      <% if user_signed_in? %>
+       <div class="col-md-2">
+         <%= link_to "Do Booking" ,new_item_book_path(item), class: "btn btn-primary"%>
+       </div>
+      <% end %>
     </div>
   </div>
 <% end %>
