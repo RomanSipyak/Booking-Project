@@ -30,14 +30,15 @@ class ItemsController < ApplicationController
   end
 
   def me
-    @items = Item.where(user: current_user)
+    @items = Item.includes(:books).where(user: current_user)
   end
 
   def index
-    @items = Item.where.not(user: current_user)
+    @items = Item.includes(:books).where.not(user: current_user)
   end
 
   def show
+    @item = Item.includes(:books).find(params[:id])
   end
 
   private

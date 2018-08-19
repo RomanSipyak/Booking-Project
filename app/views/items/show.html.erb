@@ -1,2 +1,14 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<% @item.books.each do |book|  %>
+  <div class="container">
+    <h2><%= @item.category.title %></h2>
+    <div class = "row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item">Price:<%= book.start_booking %></li>
+          <li class="list-group-item">Description:<%= book.end_booking %></li>
+          <li class="list-group-item">Price:<%= book.total_price %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
