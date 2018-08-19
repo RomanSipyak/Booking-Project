@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    @items = Item.includes(:books).where(user: current_user)
+    redirect_to items_me_path(@items)
   end
 
   def me
