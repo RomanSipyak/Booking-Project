@@ -21,11 +21,15 @@
 
         <div class="modal-body">
           <%= form_tag root_path do %>
-            <%= collection_select(:filter, :city_id, City.all, :id, :title, { prompt: "Please select Cities" },{:multiple => true})%>
-            <%= collection_select(:filter, :category_id, Category.all, :id, :title, { prompt: "Please select Categories" },{:multiple => true})%><br>
-            <label for="usr">Start Booking:</label>
+            <%= collection_select(:filter, :city_id, City.all,
+                                  :id, :title, { prompt: "Please select Cities" },{:multiple => true})%>
+            <%= collection_select(:filter, :category_id, Category.all,
+                                  :id, :title, { prompt: "Please select Categories" },{:multiple => true})%><br>
+            <label>Name:</label>
+            <%= text_field name="item_title", value="title" %><br>
+            <label>Start Booking:</label>
             <%= datetime_select name="start", value="start_booking" %><br>
-            <label for="usr">End Booking:</label>
+            <label>End Booking:</label>
             <%= datetime_select name="end", value="end_booking" %><br>
             <div><%= submit_tag 'Save' %></div>
 
