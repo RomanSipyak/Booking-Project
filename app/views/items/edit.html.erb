@@ -1,2 +1,34 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<div class = "container" >
+  <div class="row">
+    <div class=" col-md-4">
+    </div>
+    <div class=" col-md-4 align-self-center">
+      <% if @item.errors.any? %>
+        <div class="error_explanation">
+          <h4><%= pluralize(@item.errors.count, "error") %></h4>
+          <ul>
+            <% @item.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_for @item do |f| %>
+        <div class="form-group">
+          <label for="usr">Description:</label>
+          <%= f.text_area :description %><br>
+          <label for="usr">Price:</label>
+          <%= f.text_field :price %><br>
+          <div class="field">
+
+            <%= f.label :Select_item_Category %>
+            <%= f.collection_select(:category_id, @categories , :id, :title , prompt: true) %>
+          </div>
+        </div>
+        <%= f.submit 'Save' %>
+      <% end %>
+    </div>
+    <div class=" col-md-4">
+    </div>
+  </div>
+</div>

@@ -20,17 +20,23 @@ class ItemsController < ApplicationController
   end
 
   def update
+    #add errors
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    @items = Item.includes(:books).where(user: current_user)
+    redirect_to items_me_path
   end
 
   def edit
-
+    @item = Item.find(params[:id])
+    @categories = Category.all
   end
 
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
     @items = Item.includes(:books).where(user: current_user)
-    redirect_to items_me_path(@items)
+    redirect_to items_me_path
   end
 
   def me
