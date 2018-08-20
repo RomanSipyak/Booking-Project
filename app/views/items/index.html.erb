@@ -37,7 +37,6 @@
         </div>
 
 
-
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -52,8 +51,9 @@
     <div class = "row">
      <div class="col-md-6">
       <ul class="list-group">
-        <li class="list-group-item">Price:<%= item.price %></li>
+        <li class="list-group-item">Name:<%= item.name %></li>
         <li class="list-group-item">Description:<%= item.description %></li>
+        <li class="list-group-item">Price:<%= item.price %></li>
       </ul>
      </div>
       <% if user_signed_in? %>
