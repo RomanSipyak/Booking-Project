@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  include Filterable
   has_many :reviews, as: :reviewcontainer
   belongs_to :user
   belongs_to :category

@@ -33,7 +33,7 @@ class BooksController < ApplicationController
     @item = Item.find(params[:item_id])
 
     @booking.total_price = (@booking.end_booking - @booking.start_booking) * (@item.price / 86_400)
-    @booking.item=@item
+    @booking.item = @item
     @booking.user = current_user
     @booking.save!
   end

@@ -1,37 +1,37 @@
 <% @items.each do |item| %>
-  <div class="container">
+  <div class='container'>
     <h2><%= item.category.title %></h2>
-    <div class = "row">
-      <div class="col-md-1">
-        <div class="row">
-          <div class="col-md-6">
-            <%= link_to "Delete", item_path(item), method: :delete, class: "btn btn-primary"%>
+    <div class='row'>
+      <div class='col-md-1'>
+        <div class='row'>
+          <div class='col-md-6'>
+            <%= link_to 'Delete', item_path(item), method: :delete, class: 'btn btn-primary' %>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <%= link_to "Update",  edit_item_path(item), method: :get, class: "btn btn-primary"%>
+        <div class='row'>
+          <div class='col-md-6'>
+            <%= link_to 'Update', edit_item_path(item), method: :get, class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li class="list-group-item">Price:<%= item.price %></li>
-          <li class="list-group-item">Description:<%= item.description %></li>
+      <div class='col-md-6'>
+        <ul class='list-group'>
+          <li class='list-group-item'>Price:<%= item.price %></li>
+          <li class='list-group-item'>Description:<%= item.description %></li>
         </ul>
       </div>
-      <div class="col-md-1">
-       <div class = 'row'>
-         <div class="col-md-4">
-         </div>
-         <div class="col-md-4">
-           <button type="button" class="btn btn-info  " style="margin-top:15px">
-             <%= link_to "Show bookings for this item", item_path(item), method: :get, class: "btn btn-primary"%>
-           </button>
-         </div>
-         <div class="col-md-4">
-         </div>
-       </div>
+      <div class='col-md-1'>
+        <div class='row'>
+          <div class='col-md-4'>
+          </div>
+          <div class='col-md-4'>
+            <button type='button' class='btn btn-info  ' style='margin-top:15px'>
+              <%= link_to 'Show bookings for this item', item_path(item), method: :get, class: 'btn btn-primary' %>
+            </button>
+          </div>
+          <div class='col-md-4'>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,44 +1,64 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-4'></div>
+    <div class='col-md-4'>
       <!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Filter(not work)</button>
+      <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Filter(not work)
+      </button>
     </div>
-    <div class="col-md-4"></div>
+    <div class='col-md-4'></div>
   </div>
   <!-- Modal -->
-  <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+  <div id='myModal' class='modal fade' role='dialog'>
+    <div class='modal-dialog'>
 
       <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Filter for Items</h4>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type='button' class='close' data-dismiss='modal'>&times;</button>
+          <h4 class='modal-title'>Filter for Items</h4>
         </div>
 
 
-        <div class="modal-body">
+        <div class='modal-body'>
           <%= form_tag root_path, method: :get do %>
-            <%= collection_select(:filter, :city_id, City.all,
-                                  :id, :title, { prompt: "Please select Cities" },{:multiple => true})%>
+            <!--        <%= collection_select(:filter, :city_id, City.all,
+                                              :id, :title, {prompt: 'Please select Cities'}, {multiple: true}) %>
             <%= collection_select(:filter, :category_id, Category.all,
-                                  :id, :title, { prompt: "Please select Categories" },{:multiple => true})%><br>
+                                  :id, :title, {prompt: 'Please select Categories'}, {:multiple => true}) %><br>
+              <label>City:</label>
+            <%#= collection_check_boxes(:filter, :city_ids, City.all, :id, :title) %><br>
+            <label>Category:</label>
+            <%#= collection_check_boxes(:filter, :category_ids, Category.all, :id, :title) %><br>-->
+
+            <% City.all.each do |city| %>
+
+              <%= check_box_tag 'by_city[]', city.id %>
+              <%= h city.title %>
+
+            <% end %>
+            <br>
+            <% Category.all.each do |category| %>
+
+              <%= check_box_tag 'by_category[]', category.id %>
+              <%= h category.title %>
+
+            <% end %>
+            <br>
             <label>Name:</label>
-            <%= text_field name="filter", value="title" %><br>
+            <%= text_field_tag :by_title %><br>
             <label>Start Booking:</label>
-            <%= datetime_select name="filter", value="start_booking" %><br>
+            <%= datetime_select :filter, :start_booking %><br>
             <label>End Booking:</label>
-            <%= datetime_select name="filter", value="end_booking" %><br>
+            <%= datetime_select :filter, :end_booking %><br>
             <div><%= submit_tag 'Save' %></div>
 
           <% end %>
         </div>
 
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
         </div>
       </div>
 
@@ -46,20 +66,20 @@
   </div>
 </div>
 <% @items.each do |item| %>
-  <div class="container">
+  <div class='container'>
     <h2><%= item.category.title %></h2>
-    <div class = "row">
-     <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item">Name:<%= item.name %></li>
-        <li class="list-group-item">Description:<%= item.description %></li>
-        <li class="list-group-item">Price:<%= item.price %></li>
-      </ul>
-     </div>
+    <div class='row'>
+      <div class='col-md-6'>
+        <ul class='list-group'>
+          <li class='list-group-item'>Name:<%= item.name %></li>
+          <li class='list-group-item'>Description:<%= item.description %></li>
+          <li class='list-group-item'>Price:<%= item.price %></li>
+        </ul>
+      </div>
       <% if user_signed_in? %>
-       <div class="col-md-2">
-         <%= link_to "Do Booking" ,new_item_book_path(item), class: "btn btn-primary"%>
-       </div>
+        <div class='col-md-2'>
+          <%= link_to 'Do Booking', new_item_book_path(item), class: 'btn btn-primary' %>
+        </div>
       <% end %>
     </div>
   </div>

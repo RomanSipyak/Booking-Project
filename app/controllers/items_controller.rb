@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, on: [:index]
 
@@ -16,11 +15,10 @@ class ItemsController < ApplicationController
       @categories = Category.all
       render 'new'
     end
-
   end
 
   def update
-    #add errors
+    # add errors
     @item = Item.find(params[:id])
     @item.update(item_params)
     @items = Item.includes(:books).where(user: current_user)
@@ -45,26 +43,20 @@ class ItemsController < ApplicationController
 
   def index
     if params[:filter]
-         p container_time[:start_booking]
-         p container_time[:end_booking]
-         p params[:filter][:title]
-         p params[:filter][:city_id]
-         p params[:filter][:category_id]
-         @items = Item.includes(:books)
-                      .by_city(params[:filter][:city_id])
-                      .by_title(params[:filter][:title])
-                      .book_interval(container_time[:start_booking],container_time[:end_booking])
-                      .by_category(params[:filter][:category_id])
-                      .where.not(user: current_user)
-
-         p '1'*100
-        p @items
-         p '1'*100
-
+      params[:by_title].strip!
+      @items = Item.book_interval(container_time[:start_booking], container_time[:end_booking])
+                   .filter(params.slice(:by_title, :by_city, :by_category))
+=begin
+      @items = Item.includes(:books)
+                   .by_city(params[:filter][:city_id])
+                   .by_title(params[:filter][:title])
+                   .book_interval(container_time[:start_booking], container_time[:end_booking])
+                   .by_category(params[:filter][:category_id])
+                   .where.not(user: current_user)
+=end
     else
       @items = Item.includes(:books).where.not(user: current_user)
     end
-
   end
 
   def show
@@ -72,8 +64,9 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
-    params.require(:item).permit(:description, :category_id, :price,:start_booking)
+    params.require(:item).permit(:description, :category_id, :price, :start_booking)
   end
 
   def container_time
@@ -89,9 +82,6 @@ class ItemsController < ApplicationController
                                params[:filter]['end_booking(4i)'].to_i,
                                params[:filter]['end_booking(5i)'].to_i,
                                0)
-    {start_booking: start_booking, end_booking: end_booking}
+    { start_booking: start_booking, end_booking: end_booking }
   end
-
-
-
 end
