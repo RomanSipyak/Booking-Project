@@ -65,7 +65,7 @@
     </div>
   </div>
 </div>
-<% @items.each do |item| %>
+<% @items.includes(:category).each do |item| %>
   <div class='container'>
     <h2><%= item.category.title %></h2>
     <div class='row'>
