@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reviews, as: :reviewcontainer
   belongs_to :city
-  has_many :items
-  has_many :books
+  has_many :items, dependent: :destroy
+  has_many :books, dependent: :destroy
+
+  extend ItemSplitter
+
+  split(username)
 end
