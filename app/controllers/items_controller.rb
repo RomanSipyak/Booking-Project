@@ -8,9 +8,14 @@ class ItemsController < ApplicationController
   end
 
   def create
+    p '1'*100
+    p item_params[:image]
+    p '1'*100
+
     @item = Item.new(item_params)
     @item.user = current_user
     if @item.save
+      redirect_to items_me_path
     else
       @categories = Category.all
       render 'new'
@@ -42,7 +47,8 @@ class ItemsController < ApplicationController
   end
 
   def index
-
+    @cities = City.all
+    @categories = Category.all
     if params[:filter]
       params[:by_title].strip!
       @items = Item.book_interval(container_time[:start_booking], container_time[:end_booking])
@@ -68,7 +74,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:description, :category_id, :price)
+    params.require(:item).permit(:description, :category_id, :price, :image)
   end
 
 

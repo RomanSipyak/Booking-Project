@@ -1,16 +1,28 @@
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-1">
+    <%= link_to new_item_path do %>
+      <button class="btn btn-green btn-fab"><i class="fa fa-plus"></i></button>
+    <% end %>
+  </div>
+  <div class="col-md-5"></div>
+</div>
+
+
+
 <% @items.includes(:category).each do |item| %>
-  <div class='container'>
-    <h2><%= item.category.title %></h2>
-    <div class='row'>
+  <div class='container' >
+    <div class='row navbar-inverse'>
+      <h2><%= item.category.title %></h2>
       <div class='col-md-1'>
         <div class='row'>
           <div class='col-md-6'>
-            <%= link_to 'Delete', item_path(item), method: :delete, class: 'btn btn-primary' %>
+            <%= link_to 'Delete', item_path(item), method: :delete, class: 'btn btn-red btn-raised' %>
           </div>
         </div>
         <div class='row'>
           <div class='col-md-6'>
-            <%= link_to 'Update', edit_item_path(item), method: :get, class: 'btn btn-primary' %>
+            <%= link_to 'Update', edit_item_path(item), method: :get, class: 'btn btn-blue btn-raised' %>
           </div>
         </div>
       </div>
@@ -22,14 +34,14 @@
       </div>
       <div class='col-md-1'>
         <div class='row'>
-          <div class='col-md-4'>
+          <div class='col-md-1'>
           </div>
-          <div class='col-md-4'>
-            <button type='button' class='btn btn-info  ' style='margin-top:15px'>
-              <%= link_to 'Show bookings for this item', item_path(item), method: :get, class: 'btn btn-primary' %>
+          <div class='col-md-2'>
+            <button  style='margin-top:15px'>
+              <%= link_to 'Show bookings for this item', item_path(item), method: :get, class: 'btn btn-green btn-raised' %>
             </button>
           </div>
-          <div class='col-md-4'>
+          <div class='col-md-1'>
           </div>
         </div>
       </div>

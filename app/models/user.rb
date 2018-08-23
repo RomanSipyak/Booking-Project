@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :books, dependent: :destroy
 
+=begin
   extend ItemSplitter
 
   split(username)
+=end
 end

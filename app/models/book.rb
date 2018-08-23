@@ -3,9 +3,12 @@ class Book < ApplicationRecord
   belongs_to :user
 
   validate :start_gt_current_time, :start_lt_end
-  extend ItemSplitter
+
+=begin
+  extend item_splitter
 
   split(title)
+=end
 
   def start_lt_end
     if start_booking > end_booking

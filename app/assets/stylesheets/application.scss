@@ -15,3 +15,242 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.mt {
+  margin-top: 12px;
+}
+
+/*** Кнопки ***/
+
+.btn {
+  z-index: 2;
+  display: inline-block;
+  vertical-align: top;
+  margin: 2px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 15px;
+  line-height: 36px;
+  -webkit-transition-property: box-shadow;
+  -moz-transition-property: box-shadow;
+  transition-property: box-shadow;
+  -webkit-transition-duration: .5s;
+  -moz-transition-duration: .5s;
+  transition-duration: .5s;
+}
+.btn, .btn:hover, .btn:active, .btn:focus {
+  text-decoration: none;
+  outline: none;
+}
+.btn::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/*** Цвета шрифта кнопок без фона ***/
+.btn-flat.btn-red,
+.btn-icon.btn-red {
+  color: #f44336;
+}
+
+.btn-flat.btn-blue,
+.btn-icon.btn-blue {
+  color: #2196f3;
+}
+
+.btn-flat.btn-green,
+.btn-icon.btn-green {
+  color: #4caf50;
+}
+
+.btn-flat.btn-orange,
+.btn-icon.btn-orange {
+  color: #ff9800;
+}
+
+.btn-flat.btn-grey,
+.btn-icon.btn-grey {
+  color: #9e9e9e;
+}
+
+.btn-flat.btn-black,
+.btn-icon.btn-black {
+  color: #000000;
+}
+
+.btn-flat.btn-white,
+.btn-icon.btn-white {
+  color: #fff;
+}
+/*** Тень кнопок ***/
+.btn-raised,
+.btn-fab {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+/*** Изменение при наведении ***/
+.btn-raised:hover,
+.btn-flat:hover,
+.btn-fab:hover,
+.btn-icon:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+/*** Кнопки с фоном ***/
+.btn-raised.btn-red,
+.btn-fab.btn-red {
+  color: #fff;
+  background-color: #f44336;
+}
+
+.btn-raised.btn-blue,
+.btn-fab.btn-blue {
+  color: #fff;
+  background-color: #2196F3;
+}
+
+.btn-raised.btn-green,
+.btn-fab.btn-green {
+  color: #fff;
+  background-color: #4caf50;
+}
+
+.btn-raised.btn-orange,
+.btn-fab.btn-orange {
+  color: #fff;
+  background-color: #ff9800;
+}
+
+.btn-raised.btn-grey,
+.btn-fab.btn-grey {
+  color: #fff;
+  background-color: #9e9e9e;
+}
+
+.btn-raised.btn-black,
+.btn-fab.btn-black {
+  color: #fff;
+  background-color: #000;
+}
+
+.btn-raised.btn-white,
+.btn-fab.btn-white {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
+}
+/*** Кнопки с иконками ***/
+.btn-icon,
+.btn-fab {
+  border-radius: 50%;
+  padding: 0;
+  height: 36px;
+  width: 36px;
+  line-height: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; }
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 38%;
+  padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+.forgot {
+  text-align: left; margin-bottom:30px;
+}
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+#webcoderskull{
+  position: absolute;
+  left: 0;
+  top: 12%;
+  padding: 0px;
+  width: 100%;
+  size: 100px;
+  height:100%;
+ }
+
+canvas{
+  height:100%;
+  background-color:#DADADA;
+}
+#webcoderskull h1{
+
+  font-size: 5rem;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}

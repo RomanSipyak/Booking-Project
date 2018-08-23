@@ -1,13 +1,17 @@
 class Item < ApplicationRecord
+  include ImageUploader::Attachment.new(:image)
   include Filterable
   has_many :reviews, as: :reviewcontainer, dependent: :destroy
   belongs_to :user
   belongs_to :category
   has_many :books, dependent: :destroy
 
-  extend ItemSplitter
 
+=begin
+  extend ItemSpliter
   split(name)
+=end
+
 
   validates :price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ },
                     numericality: { greater_than: 0, less_than: 1_000_000 }

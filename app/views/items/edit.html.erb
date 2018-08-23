@@ -20,9 +20,10 @@
           <label for='usr'>Price:</label>
           <%= f.text_field :price %><br>
           <div class='field'>
-
             <%= f.label :Select_item_Category %>
             <%= f.collection_select(:category_id, @categories, :id, :title, prompt: true) %>
+            <%= f.label :image %><br>
+            <%= f.file_field :image %>
           </div>
         </div>
         <%= f.submit 'Save' %>

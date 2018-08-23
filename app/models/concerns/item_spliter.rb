@@ -1,4 +1,4 @@
-module ItemSplitter
+module ItemSpliter
 
   def split(*fields)
     fields.each do |field|
@@ -15,7 +15,7 @@ module ItemSplitter
        validates :#{field}, presence: true
 
       METOD
-                )
+)
     end
   end
 end
