@@ -28,6 +28,7 @@
       </div>
       <div class='col-md-6'>
         <ul class='list-group'>
+          <li class='list-group-item'>Price:<%= item.name %></li>
           <li class='list-group-item'>Price:<%= item.price %></li>
           <li class='list-group-item'>Description:<%= item.description %></li>
         </ul>
@@ -38,7 +39,7 @@
           </div>
           <div class='col-md-2'>
             <button  style='margin-top:15px'>
-              <%= link_to 'Show bookings for this item', item_path(item), method: :get, class: 'btn btn-green btn-raised' %>
+              <%= link_to 'Show bookings for this item', item_books_path(item), method: :get, class: 'btn btn-green btn-raised' %>
             </button>
           </div>
           <div class='col-md-1'>

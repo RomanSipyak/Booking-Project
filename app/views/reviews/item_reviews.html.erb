@@ -1,0 +1,107 @@
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class='col-md-6'>
+    <ul class='list-group'>
+      <li class='list-group-item'>Category:<%= @item.category.title %></li>
+      <li class='list-group-item'>Name:<%= @item.name %></li>
+      <li class='list-group-item'>Price:<%= @item.price %></li>
+      <li class='list-group-item'>Description:<%= @item.description %></li>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1" id="logout">
+      <div class="page-header">
+        <h3 class="reviews">Leave your reviews</h3>
+      </div>
+      <div class="comment-tabs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4>
+            </a></li>
+          <li>
+            <a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="comments-logout">
+            <% @item.reviews.each do |review| %>
+              <ul class="media-list">
+                <li class="media">
+                  <a class="pull-left" href="#">
+<!--                    <img class="media-object img-circle" src=" <%#= review.user.image_url %>" alt="no image">-->
+                  </a>
+                  <div class="media-body">
+                    <div class="well well-lg">
+                      <h4 class="media-heading text-uppercase reviews"><%= review.user.username %></h4>
+                      <ul class="media-date text-uppercase reviews list-inline">
+                        <li class="dd"><%= review.date %></li>
+                      </ul>
+                      <p class="media-comment">
+                        <%= review.comment %>
+                      </p>
+                      <% if review.image.present? %>
+                        <%= image_tag review.image_url %>
+                      <% end %>
+                      <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span>
+                        Reply</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            <% end %>
+          </div>
+
+
+                   <div class="tab-pane" id="add-comment">
+           <div class="form-horizontal" id="commentForm">
+           <%= form_for @review, url: {action: "create"} do |f| %>
+           <%= f.hidden_field :reviewcontainer_type, :value => 'Item' %>
+           <%= f.hidden_field :reviewcontainer_id, :value => @item.id %>
+           <div class="form-group">
+             <label for="email" class="col-sm-2 control-label">Comment</label>
+             <div class="col-sm-10">
+               <%= f.text_area :comment %><br>
+             </div>
+           </div>
+           <div class="form-group">
+             <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
+             <div class="col-sm-10">
+               <div class="input-group">
+                 <%= f.file_field :image %>
+               </div>
+             </div>
+           </div>
+           <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-10">
+               <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment">
+                 <span class="glyphicon glyphicon-send"></span> Summit review
+               </button>
+             </div>
+           </div>
+           <% end %>
+           </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-header text-center">
+  <h3 class="reviews"><span class="glyphicon glyphicon-magnet"></span>Reviews</h3>
+</div>
+<div class="notes text-center">
+  <small>Booking</small>
+</div>
+</div>

@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   get '/items/me', to: 'items#me'
   resources :items do
     resources :books
+    resources :reviews
   end
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users do
+    resources :reviews
+  end
   root to: 'items#index'
 end

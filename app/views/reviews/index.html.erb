@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class='col-md-6'>
+    <ul class='list-group'>
+      <li class='list-group-item'>Name:<%= @item.name %></li>
+      <li class='list-group-item'>Price:<%= @item.price %></li>
+      <li class='list-group-item'>Description:<%= @item.description %></li>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+
+
+<% @item.reviews.each do |review| %>
+  <div class='container'>
+    <h2><%= @item.category.title %></h2>
+    <div class='row'>
+      <div class='col-md-6'>
+        <ul class='list-group'>
+          <li class='list-group-item'>Price:<%= review %></li>
+          <li class='list-group-item'>Description:<%= review %></li>
+          <li class='list-group-item'>Price:<%= review %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class='col-md-6'>
+    <ul class='list-group'>
+      <li class='list-group-item'>Name:<%= @user.usernamename %></li>
+      <li class='list-group-item'>Price:<%= @user.city %></li>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+
+
+<% @user.reviews.each do |review| %>
+  <div class='container'>
+    <h2><%= @user.category.title %></h2>
+    <div class='row'>
+      <div class='col-md-6'>
+        <ul class='list-group'>
+          <li class='list-group-item'>Price:<%= review %></li>
+          <li class='list-group-item'>Description:<%= review %></li>
+          <li class='list-group-item'>Price:<%= review %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

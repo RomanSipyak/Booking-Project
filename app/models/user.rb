@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include ImageUploader::Attachment.new(:image)
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,6 +8,7 @@ class User < ApplicationRecord
   belongs_to :city
   has_many :items, dependent: :destroy
   has_many :books, dependent: :destroy
+  has_many :authored_reviews , class_name: "Review"
 
 =begin
   extend ItemSplitter
