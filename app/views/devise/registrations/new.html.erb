@@ -22,6 +22,10 @@
     <%= f.collection_select(:city_id, City.all, :id, :title , prompt: true) %>
   </div>
   <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
