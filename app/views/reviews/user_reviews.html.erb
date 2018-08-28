@@ -1,0 +1,350 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class='col-md-6'>
+    <ul class='list-group'>
+      <li class='list-group-item'>Username:<%= @user.username %></li>
+      <li class='list-group-item'>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="rating-block">
+                  <h4>Average user rating</h4>
+                  <h2 class="bold padding-bottom-7"> <%= @user.rating.round(2) %>
+                    <small>/ 5</small>
+                  </h2>
+                  <% (0...@user.rating.floor).each do %>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                  <% end %>
+                  <% (0...5 - @user.rating.floor).each do %>
+                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="rating-block">
+                  <h4>Average user rating in trading</h4>
+                  <h2 class="bold padding-bottom-7"> <%= @user.rating_trade.round(2) %>
+                    <small>/ 5</small>
+                  </h2>
+                  <% (0...@user.rating.floor).each do %>
+                    <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                  <% end %>
+                  <% (0...5 - @user.rating.floor).each do %>
+                    <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </button>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row">
+              <h4>Rating breakdown</h4>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @stars_reviews[5][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 100%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_reviews[5][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="<%= @stars_reviews[4][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_reviews[4][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%= @stars_reviews[3][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_reviews[3][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<%= @stars_reviews[2][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_reviews[2][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= @stars_reviews[1][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_reviews[1][:star] %></div>
+              </div>
+            </div>
+            <div class="row">
+              <h4>Rating breakdown</h4>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @stars_trade[5][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 100%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_trade[5][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="<%= @stars_trade[4][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_trade[4][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%= @stars_trade[3][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_trade[3][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<%= @stars_trade[2][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_trade[2][:star] %></div>
+              </div>
+              <div class="pull-left">
+                <div class="pull-left" style="width:35px; line-height:1;">
+                  <div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left" style="width:180px;">
+                  <div class="progress" style="height:9px; margin:8px 0;">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= @stars_trade[1][:percent] %>" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pull-right" style="margin-left:10px;"><%= @stars_trade[1][:star] %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1" id="logout">
+      <div class="page-header">
+        <h3 class="reviews">Leave your reviews</h3>
+      </div>
+      <div class="comment-tabs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a href="#comments-logout" role="tab" data-toggle="tab">
+              <h4 class="reviews text-capitalize">Comments for user</h4></a>
+          </li>
+          <li>
+            <a href="#comments-logout2" role="tab" data-toggle="tab">
+              <h4 class="reviews text-capitalize">Comments by user</h4></a>
+          </li>
+          <li>
+            <a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="comments-logout">
+            <% @user.reviews.each do |review| %>
+              <ul class="media-list">
+                <li class="media">
+                  <a class="pull-left" href="#">
+                    <!--                    <img class="media-object img-circle" src=" <%#= review.user.image_url %>" alt="no image">-->
+                  </a>
+                  <div class="media-body">
+                    <div class="well well-lg">
+                      <h4 class="media-heading text-uppercase reviews"><%= review.user.username %></h4>
+                      <ul class="media-date text-uppercase reviews list-inline">
+                        <li class="dd"><%= review.date %></li>
+                      </ul>
+                      <p class="media-comment">
+                        <%= review.comment %>
+                      </p>
+                      <% if review.image.present? %>
+                        <%= image_tag review.image_url %>
+                      <% end %>
+                      <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span>
+                        Reply</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            <% end %>
+          </div>
+
+
+          <div class="tab-pane active" id="comments-logout2">
+            <% @user.authored_reviews.each do |review| %>
+              <ul class="media-list">
+                <li class="media">
+                  <a class="pull-left" href="#">
+                    <!--                    <img class="media-object img-circle" src=" <%#= review.user.image_url %>" alt="no image">-->
+                  </a>
+                  <div class="media-body">
+                    <div class="well well-lg">
+                      <h4 class="media-heading text-uppercase reviews"><%= review.user.username %></h4>
+                      <ul class="media-date text-uppercase reviews list-inline">
+                        <li class="dd"><%= review.date %></li>
+                      </ul>
+                      <p class="media-comment">
+                        <%= review.comment %>
+                      </p>
+                      <% if review.image.present? %>
+                        <%= image_tag review.image_url %>
+                      <% end %>
+                      <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span>
+                        Reply</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            <% end %>
+          </div>
+
+
+          <div class="tab-pane" id="add-comment">
+            <div class="form-horizontal" id="commentForm">
+              <%= form_for @review, url: {action: "create"} do |f| %>
+                <div class="review-block-rate">
+                  <label type="button" class="btn btn-warning btn-xs" aria-label="Left Align" for="rating_1">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </label>
+                  <label type="button" class="btn btn-warning btn-xs" aria-label="Left Align" for="rating_2">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </label>
+                  <label type="button" class="btn btn-warning btn-xs" aria-label="Left Align" for="rating_3">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </label>
+                  <label type="button" class="btn btn-warning btn-xs" aria-label="Left Align" for="rating_4">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </label>
+                  <label type="button" class="btn btn-warning btn-xs" aria-label="Left Align" for="rating_5">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </label>
+                  <!--                  <label type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align" for="rating_4">
+                                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </label>
+                                    <label type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align" for="rating_5">
+                                      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    </label>-->
+                </div>
+                <%= f.hidden_field :reviewcontainer_type, :value => 'User' %>
+                <%= f.hidden_field :reviewcontainer_id, :value => @user.id %>
+                <div style="visibility: hidden;">
+                  <%= radio_button_tag 'rating', '1' %><label>1</label>
+                  <%= radio_button_tag 'rating', '2' %><label>2</label>
+                  <%= radio_button_tag 'rating', '3' %><label>3</label>
+                  <%= radio_button_tag 'rating', '4' %><label>4</label>
+                  <%= radio_button_tag 'rating', '5' %><label>5</label>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="col-sm-2 control-label">Comment</label>
+                  <div class="col-sm-10">
+                    <%= f.text_area :comment %><br>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
+                  <div class="col-sm-10">
+                    <div class="input-group">
+                      <%= f.file_field :image %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment">
+                      <span class="glyphicon glyphicon-send"></span> Summit review
+                    </button>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-header text-center">
+  <h3 class="reviews"><span class="glyphicon glyphicon-magnet"></span>Reviews</h3>
+</div>
+<div class="notes text-center">
+  <small>Booking</small>
+</div>
+</div>

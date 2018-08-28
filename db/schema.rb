@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_131449) do
+ActiveRecord::Schema.define(version: 2018_08_28_110941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
-    t.datetime "StartBooking"
-    t.datetime "EndBooking"
-    t.float "TotalPrice"
+    t.datetime "start_booking"
+    t.datetime "end_booking"
+    t.float "total_price"
     t.integer "item_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 2018_08_14_131449) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "image_data"
+    t.float "rating"
+    t.integer "review_count"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -53,6 +57,9 @@ ActiveRecord::Schema.define(version: 2018_08_14_131449) do
     t.bigint "reviewcontainer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_data"
+    t.datetime "date"
+    t.float "rating"
     t.index ["reviewcontainer_type", "reviewcontainer_id"], name: "index_reviews_on_reviewcontainer_type_and_reviewcontainer_id"
   end
 
@@ -71,6 +78,10 @@ ActiveRecord::Schema.define(version: 2018_08_14_131449) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.text "image_data"
+    t.integer "review_count"
+    t.float "rating"
+    t.float "rating_trade"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

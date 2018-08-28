@@ -1,26 +1,35 @@
-<div class = "container" >
-  <% if @item.errors.any? %>
-    <div class="error_explanation">
-      <h4><%= pluralize(@item.errors.count, "error") %></h4>
-      <ul>
-        <% @item.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-4'>
     </div>
-  <% end %>
-<%= form_for @item do |f| %>
-  <div class="form-group">
-    <label for="usr">Description:</label>
-    <%= f.text_area :description %><br>
-    <label for="usr">Price:</label>
-    <%= f.text_field :price %><br>
-    <div class="field">
-
-      <%= f.label :Select_item_Category %>
-      <%= f.collection_select(:category_id, @categories , :id, :title , prompt: true) %>
+    <div class='col-md-4 align-self-center'>
+      <% if @item.errors.any? %>
+        <div class='error_explanation'>
+          <h4><%= pluralize(@item.errors.count, 'error') %></h4>
+          <ul>
+            <% @item.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_for @item do |f| %>
+        <div class='form-group'>
+          <label for='usr'>Description:</label>
+          <%= f.text_area :description %><br>
+          <label for='usr'>Price:</label>
+          <%= f.text_field :price %><br>
+          <div class='field'>
+            <%= f.label :Select_item_Category %>
+            <%= f.collection_select(:category_id, @categories, :id, :title, prompt: true) %>
+            <%= f.label :image %><br>
+            <%= f.file_field :image %>
+          </div>
+        </div>
+        <%= f.submit 'Save' %>
+      <% end %>
+    </div>
+    <div class='col-md-4'>
     </div>
   </div>
-  <%= f.submit 'Save' %>
-<% end %>
 </div>

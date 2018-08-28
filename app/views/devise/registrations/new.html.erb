@@ -18,8 +18,12 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
   <div class="field">
-    <%= f.label :Select_your_Country %>
+    <%= f.label :Select_your_City %>
     <%= f.collection_select(:city_id, City.all, :id, :title , prompt: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />

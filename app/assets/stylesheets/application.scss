@@ -15,3 +15,320 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+/*bg style*/
+html, body{
+  height: 100%;
+}
+body {
+  background-image: url('') ;
+  background-position: center center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  background-color: #999;
+
+}
+div, body{
+  margin: 0;
+  padding: 0;
+  font-family: exo, sans-serif;
+
+}
+/*bg style*/
+
+/*** Кнопки ***/
+.mt {
+  margin-top: 12px;
+}
+
+.btn {
+  z-index: 2;
+  display: inline-block;
+  vertical-align: top;
+  margin: 2px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 15px;
+  line-height: 36px;
+  -webkit-transition-property: box-shadow;
+  -moz-transition-property: box-shadow;
+  transition-property: box-shadow;
+  -webkit-transition-duration: .5s;
+  -moz-transition-duration: .5s;
+  transition-duration: .5s;
+}
+.btn, .btn:hover, .btn:active, .btn:focus {
+  text-decoration: none;
+  outline: none;
+}
+.btn::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/*** Цвета шрифта кнопок без фона ***/
+.btn-flat.btn-red,
+.btn-icon.btn-red {
+  color: #f44336;
+}
+
+.btn-flat.btn-blue,
+.btn-icon.btn-blue {
+  color: #2196f3;
+}
+
+.btn-flat.btn-green,
+.btn-icon.btn-green {
+  color: #4caf50;
+}
+
+.btn-flat.btn-orange,
+.btn-icon.btn-orange {
+  color: #ff9800;
+}
+
+.btn-flat.btn-grey,
+.btn-icon.btn-grey {
+  color: #9e9e9e;
+}
+
+.btn-flat.btn-black,
+.btn-icon.btn-black {
+  color: #000000;
+}
+
+.btn-flat.btn-white,
+.btn-icon.btn-white {
+  color: #fff;
+}
+/*** Тень кнопок ***/
+.btn-raised,
+.btn-fab {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+/*** Изменение при наведении ***/
+.btn-raised:hover,
+.btn-flat:hover,
+.btn-fab:hover,
+.btn-icon:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+/*** Кнопки с фоном ***/
+.btn-raised.btn-red,
+.btn-fab.btn-red {
+  color: #fff;
+  background-color: #f44336;
+}
+
+.btn-raised.btn-blue,
+.btn-fab.btn-blue {
+  color: #fff;
+  background-color: #2196F3;
+}
+
+.btn-raised.btn-green,
+.btn-fab.btn-green {
+  color: #fff;
+  background-color: #4caf50;
+}
+
+.btn-raised.btn-orange,
+.btn-fab.btn-orange {
+  color: #fff;
+  background-color: #ff9800;
+}
+
+.btn-raised.btn-grey,
+.btn-fab.btn-grey {
+  color: #fff;
+  background-color: #9e9e9e;
+}
+
+.btn-raised.btn-black,
+.btn-fab.btn-black {
+  color: #fff;
+  background-color: #000;
+}
+
+.btn-raised.btn-white,
+.btn-fab.btn-white {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
+}
+/*** Кнопки с иконками ***/
+.btn-icon,
+.btn-fab {
+  border-radius: 50%;
+  padding: 0;
+  height: 36px;
+  width: 36px;
+  line-height: 0;
+}
+/*** Кнопки ***/
+
+
+
+
+
+
+
+
+
+
+
+
+
+body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; }
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 38%;
+  padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+.forgot {
+  text-align: left; margin-bottom:30px;
+}
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    Image credits:
+    uifaces.com (http://uifaces.com/authorized)
+*/
+
+#login { display: none; }
+.login,
+.logout {
+  position: absolute;
+  top: -3px;
+  right: 0;
+}
+.page-header { position: relative; }
+.reviews {
+  color: #555;
+  font-weight: bold;
+  margin: 10px auto 20px;
+}
+.notes {
+  color: #999;
+  font-size: 12px;
+}
+.media .media-object { max-width: 120px;  height: 120px;}
+.media-body { position: relative; }
+.media-date {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+.media-date li { padding: 0; }
+.media-date li:first-child:before { content: ''; }
+.media-date li:before {
+  content: '.';
+  margin-left: -2px;
+  margin-right: 2px;
+}
+.media-comment { margin-bottom: 20px; }
+.media-replied { margin: 0 0 20px 50px; }
+.media-replied .media-heading { padding-left: 6px; }
+
+.btn-circle {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 6px 15px;
+  border-radius: 20px;
+}
+.btn-circle span { padding-right: 6px; }
+.embed-responsive { margin-bottom: 20px; }
+.tab-content {
+  padding: 50px 15px;
+  border: 1px solid #ddd;
+  border-top: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.custom-input-file {
+  overflow: hidden;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');
+  background-size: 120px;
+  border-radius: 120px;
+}
+
+.uploadPhoto {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  display: none;
+  width: 50%;
+  height: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+  background-color: rgba(0,0,0,.3);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.custom-input-file:hover .uploadPhoto { display: block; }
