@@ -10,6 +10,14 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :authored_reviews , class_name: "Review"
 
+
+  before_save :initial_rate
+
+  def initial_rate
+    self.rating ||= 0
+    self.rating_trade ||=0
+  end
+
 =begin
   extend ItemSplitter
 
